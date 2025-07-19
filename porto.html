@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracion - Portofolio Karya Siswa 2024</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body class="bg-gray-50 overflow-x-hidden">
+     <!-- Navbar -->
+<nav class="sticky top-0 z-50 bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="logo.png" alt="Logo Mersif" class="h-10 sm:h-14" />
+      <span class="sr-only">Mersif Academy</span>
+    </a>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button id="menu-toggle" class="sm:hidden text-gray-700 focus:outline-none w-10 h-10 flex items-center justify-center rounded-md hover:bg-gray-100 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Menu Items -->
+    <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:space-x-6 text-sm font-medium sm:items-center bg-white sm:bg-transparent absolute sm:static left-0 w-full sm:w-auto top-full sm:top-auto shadow-md sm:shadow-none z-40 sm:z-auto">
+      <li><a href="about.html" class="block px-4 py-2 hover:text-blue-700">Tentang Kami</a></li>
+      <li><a href="layanan.html" class="block px-4 py-2 hover:text-blue-700">Layanan</a></li>
+      <li><a href="porto.html" class="block px-4 py-2 hover:text-blue-700">Portofolio</a></li>
+      <li><a href="mentor.html" class="block px-4 py-2 hover:text-blue-700">Mentor</a></li>
+      <li><a href="paket.html" class="block px-4 py-2 hover:text-blue-700">Paket</a></li>
+      <li><a href="#form" class="block bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800 mx-4 my-2 sm:my-0">Daftar Sekarang</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="hero-bg min-h-screen">
+        <div class="content-wrapper container mx-auto px-6 py-12">
+            <!-- Header Section -->
+            <div class="flex justify-between items-center mb-12">
+                <div class="flex items-center space-x-4">
+                    <div class="floating-icon">
+                        <i class="fas fa-cube text-blue-600 text-2xl"></i>
+                    </div>
+                    <h1 class="text-4xl font-bold gradient-text">Traction</h1>
+                </div>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column - B2B Sales Achievement -->
+                <div class="lg:col-span-1">
+                    <div class="portfolio-card bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-2xl font-bold text-blue-600">B2B Sales</h2>
+                            <div class="floating-icon">
+                                <i class="fas fa-home text-gray-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="achievement-badge flex items-center space-x-3 bg-yellow-100 p-4 rounded-lg mb-6">
+                            <div class="bg-yellow-500 p-2 rounded-full">
+                                <i class="fas fa-trophy text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-yellow-800">10 Tim</div>
+                                <div class="text-sm text-yellow-600">Juara kompetisi bergengsi tingkat provinsi dan nasional di tahun 2024</div>
+                            </div>
+                        </div>
+
+                        <!-- Photo Gallery -->
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="project-item bg-gray-200 rounded-lg overflow-hidden aspect-square">
+                                <img src="https://via.placeholder.com/150x150/3B82F6/white?text=Photo+1" alt="Achievement Photo 1" class="w-full h-full object-cover">
+                            </div>
+                            <div class="project-item bg-gray-200 rounded-lg overflow-hidden aspect-square">
+                                <img src="https://via.placeholder.com/150x150/10B981/white?text=Photo+2" alt="Achievement Photo 2" class="w-full h-full object-cover">
+                            </div>
+                            <div class="project-item bg-gray-200 rounded-lg overflow-hidden aspect-square">
+                                <img src="https://via.placeholder.com/150x150/F59E0B/white?text=Photo+3" alt="Achievement Photo 3" class="w-full h-full object-cover">
+                            </div>
+                            <div class="project-item bg-gray-200 rounded-lg overflow-hidden aspect-square">
+                                <img src="https://via.placeholder.com/150x150/EF4444/white?text=Photo+4" alt="Achievement Photo 4" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Portfolio & Stats -->
+                <div class="lg:col-span-2">
+                    <div class="mb-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+                            <u>Portofolio Karya Siswa 2024</u>
+                        </h2>
+                        
+                        <!-- Project Items Grid -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+                            <div class="project-item bg-white p-4 rounded-xl shadow-lg text-center interactive-hover wiggle-on-hover">
+                                <div class="bg-blue-100 p-4 rounded-full mb-3 mx-auto w-16 h-16 flex items-center justify-center">
+                                    <img src="https://via.placeholder.com/40x40/3B82F6/white?text=🤖" alt="Robot" class="w-8 h-8">
+                                </div>
+                                <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Robot Teleoperasi
+                                </div>
+                            </div>
+                            
+                            <div class="project-item bg-white p-4 rounded-xl shadow-lg text-center interactive-hover wiggle-on-hover">
+                                <div class="bg-teal-100 p-4 rounded-full mb-3 mx-auto w-16 h-16 flex items-center justify-center">
+                                    <img src="https://via.placeholder.com/40x40/14B8A6/white?text=📱" alt="IoT Station" class="w-8 h-8">
+                                </div>
+                                <div class="bg-teal-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    stasiun Cuaca Berbasis IoT
+                                </div>
+                            </div>
+                            
+                            <div class="project-item bg-white p-4 rounded-xl shadow-lg text-center interactive-hover wiggle-on-hover">
+                                <div class="bg-cyan-100 p-4 rounded-full mb-3 mx-auto w-16 h-16 flex items-center justify-center">
+                                    <img src="https://via.placeholder.com/40x40/06B6D4/white?text=💡" alt="Traffic Light" class="w-8 h-8">
+                                </div>
+                                <div class="bg-cyan-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Lampu Portable Pengalih Arus Kendaraan
+                                </div>
+                            </div>
+                            
+                            <div class="project-item bg-white p-4 rounded-xl shadow-lg text-center interactive-hover wiggle-on-hover">
+                                <div class="bg-blue-100 p-4 rounded-full mb-3 mx-auto w-16 h-16 flex items-center justify-center">
+                                    <img src="https://via.placeholder.com/40x40/3B82F6/white?text=🔔" alt="Notification Device" class="w-8 h-8">
+                                </div>
+                                <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                                    Alat Notifikasi Dini Kecelakaan Lalu lintas
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics Section -->
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <!-- Stats Cards -->
+                            <div class="bg-blue-500 text-white p-6 rounded-xl shadow-lg interactive-hover">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-white p-3 rounded-full">
+                                        <i class="fas fa-school text-blue-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="stats-counter text-2xl font-bold">15</div>
+                                        <div class="text-blue-100">Sekolah Mitra</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-teal-500 text-white p-6 rounded-xl shadow-lg interactive-hover">
+                                <div class="flex items-center space-x-4">
+                                    <div class="bg-white p-3 rounded-full">
+                                        <i class="fas fa-users text-teal-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="stats-counter text-2xl font-bold">200+</div>
+                                        <div class="text-teal-100">Siswa</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial Card -->
+                            <div class="testimonial-card p-6 rounded-xl shadow-lg">
+                                <div class="flex items-start space-x-3">
+                                    <img src="https://via.placeholder.com/50x50/667eea/white?text=AH" alt="Azka Hafizhah" class="w-12 h-12 rounded-full border-2 border-white">
+                                    <div>
+                                        <h4 class="font-semibold mb-1">Azka Hafizhah Ramadhania</h4>
+                                        <p class="text-sm opacity-90 leading-relaxed">
+                                            Pernah ikut lomba, tapi belum dapat juara. Bersyukur banget bisa ketemu Mersif Academy. Mentornya keren, asik banget buat diskusi sepuutar riset. Alhamdulillah setelah ikut program intensif, bisa dapat juara tingkat provinsi dan nasional. Terimakasih :D
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Decorations -->
+            <div class="absolute top-20 right-20 opacity-20">
+                <div class="floating-icon text-6xl">
+                    <i class="fas fa-graduation-cap text-blue-300"></i>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-20 left-20 opacity-20">
+                <div class="floating-icon text-4xl" style="animation-delay: 1s;">
+                    <i class="fas fa-lightbulb text-yellow-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Interactive hover effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Counter animation
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stats-counter');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.textContent.replace('+', ''));
+                    let current = 0;
+                    const increment = target / 30;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '');
+                        }
+                    }, 50);
+                });
+            }
+
+            // Trigger counter animation when visible
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        observer.disconnect();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.stats-counter').forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // Add interactive hover effects to project items
+            document.querySelectorAll('.project-item').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) rotateY(5deg)';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotateY(0deg)';
+                });
+            });
+
+            // Add click effect to portfolio cards
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Smooth parallax effect for floating icons
+            window.addEventListener('mousemove', function(e) {
+                const icons = document.querySelectorAll('.floating-icon');
+                icons.forEach(icon => {
+                    const speed = 0.02;
+                    const x = (window.innerWidth - e.pageX * speed) / 100;
+                    const y = (window.innerHeight - e.pageY * speed) / 100;
+                    icon.style.transform += ` translate(${x}px, ${y}px)`;
+                });
+            });
+        });
+  // Highlight active nav link
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+      if (!link.href.includes('#')) {
+        const linkHref = link.getAttribute('href');
+        if (currentPage.endsWith(linkHref)) {
+          link.classList.add('active-nav-link');
+        }
+      }
+    });
+  });
+
+  // Toggle hamburger menu
+  document.getElementById("menu-toggle")?.addEventListener("click", function () {
+    const menu = document.getElementById("menu");
+    menu?.classList.toggle("hidden");
+  });
+
+  // AOS animation init with mobile enabled
+  AOS.init({
+  });
+    </script>
+
+<!-- Footer -->
+<footer class="bg-blue-900 text-white py-8">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="mb-4">
+      <p class="mb-2">📞 +62 822 2684 1762</p>
+      <p class="mb-2">📧 official@mersifacademy.com</p>
+      <p class="mb-2">📍 Daratan, RT.02/RW.06, Senden, Tohudan, Kec. Colomadu, Kabupaten Karanganyar, Jawa Tengah 57173</p>
+    </div>
+    <div class="border-t border-blue-800 pt-4">
+      <p>&copy; 2025 Mersif Academy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
