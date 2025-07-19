@@ -1,0 +1,121 @@
+    <!-- Konten kanan -->
+    <div>
+      <h2 class="text-3xl font-bold text-blue-900 mb-2">About Us</h2>
+      <p class="text-lg font-semibold text-gray-700 mb-4">We Bring Idea From Sketch To Life</p>
+      <p class="text-base leading-relaxed text-gray-800">
+        Platform pembelajaran yang fokus pada riset, sains, dan teknologi, dirancang untuk mendorong inovasi terbuka.
+        Kami berkomitmen untuk mencetak generasi inovator muda Indonesia yang siap bersaing di tingkat nasional dan internasional.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Konten kanan -->
+    <div>
+      <h2 class="text-3xl font-bold text-blue-900 mb-2">About Us</h2>
+      <p class="text-lg font-semibold text-gray-700 mb-4">We Bring Idea From Sketch To Life</p>
+      <p class="text-base leading-relaxed text-gray-800">
+        Platform pembelajaran yang fokus pada riset, sains, dan teknologi, dirancang untuk mendorong inovasi terbuka.
+        Kami berkomitmen untuk mencetak generasi inovator muda Indonesia yang siap bersaing di tingkat nasional dan internasional.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- Layanan / Program -->
+  <section id="services" class="py-12 px-4 bg-gray-100">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6">Program Unggulan</h2>
+      <ul class="space-y-4">
+        <li><strong>📘 Weekly Research Mentorship:</strong> Pendampingan KIR oleh mentor ahli</li>
+        <li><strong>🏆 Competition Coaching:</strong> Pelatihan intensif lomba riset & olimpiade</li>
+        <li><strong>🚀 Innovation Bootcamp:</strong> Bootcamp berbasis bakat dan minat</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Portofolio -->
+  <section id="portfolio" class="py-12 px-4 max-w-6xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-center">Galeri Kegiatan</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <img src="https://via.placeholder.com/400x250?text=Mentoring" class="rounded shadow" alt="Mentoring" />
+      <img src="https://via.placeholder.com/400x250?text=Kegiatan+Riset" class="rounded shadow" alt="Riset" />
+      <img src="https://via.placeholder.com/400x250?text=Presentasi+Siswa" class="rounded shadow" alt="Presentasi" />
+    </div>
+  </section>
+
+  <!-- Mentor -->
+  <section id="mentors" class="py-12 px-4 max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6">Tim Mentor Kami</h2>
+    <ul class="space-y-2">
+      <li>Bagus Prayoga - Fisika & Energi Terbarukan</li>
+      <li>Rozin Fata Ulwan - Elektronika & Kewirausahaan</li>
+      <li>Illyin Putuhana - Bioteknologi & Pangan</li>
+      <li>Dan lainnya...</li>
+    </ul>
+  </section>
+
+  <!-- Paket Belajar -->
+  <section id="pricing" class="py-12 px-4 bg-blue-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-center">Paket Belajar</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-bold">TRIAL</h3>
+          <p class="text-sm">Gratis • 1x Zoom</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-bold">BASIC</h3>
+          <p class="text-sm">Rp 100.000 / kelas</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h3 class="font-bold">PRO</h3>
+          <p class="text-sm">Rp 100.000 / tim</p>
+        </div>
+        <div class="bg-blue-900 text-white p-6 rounded shadow">
+          <h3 class="font-bold">PREMIUM</h3>
+          <p class="text-sm">Rp 1.250.000 / 13x</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form Pendaftaran WhatsApp -->
+  <section id="form" class="py-12 px-4">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-center">Formulir Pendaftaran</h2>
+      <form id="waForm" class="space-y-4">
+        <input type="text" id="nama" placeholder="Nama Lengkap" required class="w-full p-3 border rounded" />
+        <input type="text" id="sekolah" placeholder="Asal Sekolah" required class="w-full p-3 border rounded" />
+        <input type="number" id="kontak" placeholder="No. WhatsApp" required class="w-full p-3 border rounded" />
+        <select id="paket" required class="w-full p-3 border rounded">
+          <option value="">Pilih Paket</option>
+          <option value="Trial">Trial</option>
+          <option value="Basic">Basic</option>
+          <option value="Pro">Pro</option>
+          <option value="Premium">Premium</option>
+        </select>
+        <button type="submit" class="w-full bg-blue-900 text-white py-3 rounded hover:bg-blue-800">Kirim ke WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-6 text-center">
+    <p>📞 +62 822 2684 1762 | ✉️ official@mersifacademy.com</p>
+    <p>📍 Karanganyar, Jawa Tengah</p>
+    <p class="mt-2">&copy; 2025 Mersif Academy</p>
+  </footer>
+
+  <script>
+    document.getElementById("waForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const sekolah = document.getElementById("sekolah").value;
+      const kontak = document.getElementById("kontak").value;
+      const paket = document.getElementById("paket").value;
+      const pesan = `Halo, saya *${nama}* dari *${sekolah}* ingin mendaftar paket *${paket}*. Nomor saya: ${kontak}`;
+      const waUrl = `https://wa.me/6282226841762?text=${encodeURIComponent(pesan)}`;
+      window.open(waUrl, '_blank');
+    });
+  </script>
