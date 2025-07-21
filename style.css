@@ -371,19 +371,6 @@ body {
     border-color: #2563eb;
 }
 
-.popular-badge {
-    position: absolute;
-    top: -5px; right: -1px;
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
-    animation: pulse 2s infinite;
-    
-}
 
 .trial-card {
     background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
