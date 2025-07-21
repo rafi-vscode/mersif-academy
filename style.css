@@ -51,30 +51,28 @@ body {
 }
 
 .hero-gradient {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    overflow: hidden;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 10rem; 
+  background-image: url('bg.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
 .hero-gradient::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: blur(3px);
-    z-index: -2;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8); /* Overlay putih transparan sama seperti parallax */
+  z-index: 1;
 }
 
-.hero-gradient::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(255, 255, 255, 0.2);
-    z-index: -1;
+.hero-gradient > * {
+  position: relative;
+  z-index: 2;
 }
 
 .grid-background {
@@ -172,25 +170,6 @@ body {
     animation: fadeIn 0.4s ease-out;
 }
 
-/* Background Image Sections */
-#about-section::before, #visi-misi::before, #layanan::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url('bg.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-
-#about-section::before { filter: blur(4px); opacity: 0.5; }
-#visi-misi::before { opacity: 0.1; }
-#layanan::before { opacity: 0.1; }
-
-#about-section > *, #visi-misi > *, #layanan > * {
-    position: relative;
-    z-index: 1;
-}
 
 
 /* 5. Gaya Halaman Layanan (layanan.html) */
@@ -734,3 +713,72 @@ body {
             padding-left: 1rem !important;
             padding-right: 1rem !important;
         }
+
+        nav {
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(-50%) translateY(-2px);
+} 
+/* Tambahkan di dalam <style> */
+nav {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Styling untuk link navbar */
+nav ul li a {
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+nav ul li a:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1d4ed8;
+}
+
+/* Styling khusus untuk tombol daftar */
+nav ul li a.bg-blue-900 {
+  padding: 8px 20px;
+  margin-left: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  nav {
+    top: 1rem;
+    max-width: 95%;
+  }
+  
+  nav .px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+ .parallax-bg {
+  position: relative;
+  background-image: url('bg.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8); /* Overlay putih transparan */
+  z-index: 1;
+}
+
+.parallax-bg > * {
+  position: relative;
+  z-index: 2;
+}

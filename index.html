@@ -15,6 +15,7 @@
       overflow-x: hidden;
       width: 100%;
       position: relative;
+      
     }
     
   * {
@@ -148,13 +149,6 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
-    .hero-gradient {
-      position: relative;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      overflow: hidden;
-    }
 
     .animated-bg-element {
       position: absolute;
@@ -162,30 +156,30 @@
       max-width: 100vw; 
     }
     
-    .hero-gradient::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      z-index: -2;
-    }
+.hero-gradient {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 5rem; 
+  background-image: url('bg.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
 
-    .hero-gradient::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgb(255, 255, 255); /* Overlay putih transparan */
-      z-index: -1;
-    }
+.hero-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8); /* Overlay putih transparan sama seperti parallax */
+  z-index: 1;
+}
+
+.hero-gradient > * {
+  position: relative;
+  z-index: 2;
+}
 
     .grid-background {
       position: absolute;
@@ -197,6 +191,7 @@
         linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
       background-size: 50px 50px;
+      filter: none;
       z-index: 1;
     }
     
@@ -250,16 +245,70 @@
   position: relative;
   z-index: 2;
 }
+
+.animated-bg-element {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0; /* atau -1 jika perlu lebih rendah */
+}
+
+nav {
+  transition: all 0.3s ease;
+}
+
+nav:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateX(-50%) translateY(-2px);
+} 
+/* Tambahkan di dalam <style> */
+nav {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Styling untuk link navbar */
+nav ul li a {
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+nav ul li a:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1d4ed8;
+}
+
+/* Styling khusus untuk tombol daftar */
+nav ul li a.bg-blue-900 {
+  padding: 8px 20px;
+  margin-left: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  nav {
+    top: 1rem;
+    max-width: 95%;
+  }
+  
+  nav .px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
   </style>
 </head>
 
 <body class="bg-gray-50 overflow-x-hidden">
      <!-- Navbar -->
-<nav class="sticky top-0 z-50 bg-white shadow-md">
-  <div class="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center">
+<!-- Ganti class navbar -->
+<nav class="fixed top-2 left-1/2 transform -translate-x-1/2 z-50 bg-white/90 backdrop-blur-md shadow-lg rounded-full border border-white/20 max-w-5xl w-11/12">
+  <div class="px-8 py-2.5 flex justify-between items-center w-full">
     <!-- Logo -->
     <a href="index.html" class="flex items-center space-x-2">
-      <img src="logo.png" alt="Logo Mersif" class="h-10 sm:h-14" />
+      <img src="logo.png" alt="Logo Mersif" class="h-8 sm:h-10" />
       <span class="sr-only">Mersif Academy</span>
     </a>
 
@@ -272,8 +321,8 @@
       </svg>
     </button>
 
-    <!-- Menu Items -->
-    <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:space-x-6 text-sm font-medium sm:items-center bg-white sm:bg-transparent absolute sm:static left-0 w-full sm:w-auto top-full sm:top-auto shadow-md sm:shadow-none z-40 sm:z-auto">
+    <!-- Ganti class menu -->
+    <ul id="menu" class="hidden sm:flex flex-col sm:flex-row sm:space-x-8 text-sm font-medium sm:items-center bg-white sm:bg-transparent absolute sm:static left-4 right-4 sm:left-auto sm:right-auto w-auto sm:w-auto top-full sm:top-auto shadow-md sm:shadow-none z-40 sm:z-auto rounded-xl sm:rounded-none mt-2 sm:mt-0">
       <li><a href="about.html" class="block px-4 py-2 hover:text-blue-700">Tentang Kami</a></li>
       <li><a href="layanan.html" class="block px-4 py-2 hover:text-blue-700">Layanan</a></li>
       <li><a href="porto.html" class="block px-4 py-2 hover:text-blue-700">Portofolio</a></li>
@@ -284,8 +333,8 @@
   </div>
 </nav>
 
-<section class="hero-gradient" style="overflow-x: hidden; position: relative;">
-  <div class="grid-background"></div>
+<section class="hero-gradient relative overflow-x-hidden">
+  <!-- Background Image Layer -->
       <!-- Certificate Icon -->
     <div class="animated-bg-element top-10 left-10 float-animation" style="animation-delay: 0s;">
       <svg class="w-12 h-12 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
@@ -362,32 +411,33 @@
         </div>
       </div>
     </div>
-    <div class="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
-      <!-- Left Content -->
-      <div class="space-y-6">
-        <div class="flex flex-col items-start mb-6 lg:ml-2">
-          <h1 class="text-4xl lg:text-5xl font-bold text left" data-aos="fade-down-right" data-aos-duration="1000">
-            <span class="gradient-text">Mersif</span>
-            <span class="text-gray-800">Academy</span>
-          </h1>
-        </div>
-        
-        <p class="text-lg text-gray-700 mb-6 ml-2 leading-relaxed" data-aos="fade-right" data-aos-duration="1000">
-          Platform pembelajaran riset, sains, dan teknologi berbasis open innovation untuk 
-          mencetak inovator muda Indonesia.
-        </p>
-        
-        <div class="flex space-x-4 pt-4 ml-2" data-aos="fade-up" data-aos-duration="1000">
-          <a href="about.html" 
-             class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 pulse-glow">
-            Selengkapnya
-          </a>
-          <a href="#form" 
-             class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300">
-            Daftar Sekarang
-          </a>
-        </div>
-      </div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
+
+  <!-- Left Content -->
+  <div class="w-full max-w-md mx-auto lg:mx-0 text-left space-y-4">
+    <div class="mb-6">
+      <h1 class="text-4xl lg:text-5xl font-bold text-left" data-aos="fade-down-right" data-aos-duration="1000">
+        <span class="gradient-text">Mersif</span>
+        <span class="text-gray-800">Academy</span>
+      </h1>
+    </div>
+
+    <p class="text-lg text-gray-700 leading-relaxed" data-aos="fade-right" data-aos-duration="1000">
+      Platform pembelajaran riset, sains, dan teknologi berbasis open innovation untuk 
+      mencetak inovator muda Indonesia.
+    </p>
+
+    <div class="flex flex-wrap gap-4 pt-4" data-aos="fade-up" data-aos-duration="1000">
+      <a href="about.html" 
+         class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 pulse-glow">
+        Selengkapnya
+      </a>
+      <a href="#form" 
+         class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300">
+        Daftar Sekarang
+      </a>
+    </div>
+  </div>
 
 <!-- Right Content - Single Image with Circular Border -->
 <div class="relative" data-aos="fade-down" data-aos-duration="1000">
@@ -520,9 +570,9 @@
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-12">
       <div class="inline-block bg-white/60 backdrop-blur-sm border border-white/30 rounded-xl p-6 shadow-md" data-aos="fade-up" data-aos-duration="1000">
-        <h2 class="text-3xl font-bold mb-4 text-navy-900" data-aos="fade-down-right" data-aos-duration="1000">Analisis Market</h2>
+        <h2 class="text-3xl font-bold mb-4 text-navy-900" data-aos="fade-down-right" data-aos-duration="1000">Kenapa Harus Pilih Kami?</h2>
         <p class="text-gray-600" data-aos="fade-down-left" data-aos-duration="1000">
-          Perbandingan layanan yang tersedia di market pendidikan riset dan teknologi
+          Berikut perbandingan layanan yang tersedia di market pendidikan riset dan teknologi
         </p>
       </div>
     </div>
