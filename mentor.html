@@ -34,7 +34,7 @@
       <li><a href="porto.html" class="block px-4 py-2 hover:text-blue-700">Portofolio</a></li>
       <li><a href="mentor.html" class="block px-4 py-2 hover:text-blue-700">Mentor</a></li>
       <li><a href="paket.html" class="block px-4 py-2 hover:text-blue-700">Paket</a></li>
-      <li><a href="daftar.html" class="block bg-blue-900 text-white px-4 py-2 rounded hover:bg-blue-800 mx-4 my-2 sm:my-0">Daftar Sekarang</a></li>
+      <li><a href="daftar.html" class="block bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 mx-4 my-2 sm:my-0 transition-all duration-300">Daftar Sekarang</a></li>
     </ul>
   </div>
 </nav>
@@ -411,6 +411,20 @@
             const bubble = card.querySelector('.experience-bubble');
             bubble.classList.toggle('show');
         }
+
+                document.addEventListener("DOMContentLoaded", function() {
+        const currentPage = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav ul li a:not(.bg-blue-900)');
+
+        navLinks.forEach(link => {
+            if (!link.href.includes('#')) {
+                const linkHref = link.getAttribute('href');
+                if (currentPage.endsWith(linkHref)) {
+                    link.classList.add('active-nav-link');
+                }
+            }
+        });
+    });
 
         // Toggle mobile menu
         document.getElementById('menu-toggle').addEventListener('click', function () {

@@ -227,6 +227,27 @@
 </footer>
 
     <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('nav ul li a:not([href="daftar.html"])'); // exclude button daftar
+    const daftarButton = document.querySelector('a[href="daftar.html"]');
+
+    // Handle regular nav links
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (currentPage === linkHref || 
+            (currentPage === '' && linkHref === 'index.html')) {
+            link.classList.add('active-nav-link');
+        }
+    });
+
+    // Handle daftar button specially
+    if (currentPage === 'daftar.html' && daftarButton) {
+        daftarButton.classList.add('daftar-active');
+    }
+});        
+
 // Fungsi untuk mengambil parameter dari URL
 function getURLParameter(name) {
     const urlParams = new URLSearchParams(window.location.search);

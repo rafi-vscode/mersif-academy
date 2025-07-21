@@ -263,7 +263,7 @@
 
         document.addEventListener("DOMContentLoaded", function() {
         const currentPage = window.location.pathname;
-        const navLinks = document.querySelectorAll('nav ul li a');
+        const navLinks = document.querySelectorAll('nav ul li a:not(.bg-blue-900)');
 
         navLinks.forEach(link => {
             if (!link.href.includes('#')) {
