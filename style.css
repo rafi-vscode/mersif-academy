@@ -6,6 +6,11 @@
     font-family: 'Inter', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
 body {
     /* Anda bisa memilih salah satu, bg-gray-50 lebih konsisten di banyak file Anda */
     background-color: #f9fafb; /* setara dengan bg-gray-50 */
