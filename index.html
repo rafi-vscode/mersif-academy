@@ -10,7 +10,13 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
+
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+    
   * {
       font-family: 'Inter', sans-serif;
     }    
@@ -19,9 +25,10 @@
       overflow: hidden;
       position: relative;
       width: 100%;
-      padding-inline: 3rem;
+      padding-inline: 1rem;
+      max-width: 100vw;
     }
-
+*
     .marquee-track {
       gap: 2rem;
       display: flex;
@@ -152,6 +159,7 @@
     .animated-bg-element {
       position: absolute;
       pointer-events: none;
+      max-width: 100vw; 
     }
     
     .hero-gradient::before {
@@ -276,7 +284,7 @@
   </div>
 </nav>
 
-<section class="hero-gradient">
+<section class="hero-gradient" style="overflow-x: hidden; position: relative;">
   <div class="grid-background"></div>
       <!-- Certificate Icon -->
     <div class="animated-bg-element top-10 left-10 float-animation" style="animation-delay: 0s;">
@@ -293,7 +301,7 @@
     </div>
 
     <!-- Graduation Cap -->
-    <div class="animated-bg-element bottom-20 left-[-12] slide-diagonal" style="animation-delay: 2s;">
+    <div class="animated-bg-element bottom-20 left-3rem slide-diagonal" style="animation-delay: 2s;">
       <svg class="w-14 h-14 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
         <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
       </svg>
