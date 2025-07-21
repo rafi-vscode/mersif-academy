@@ -37,6 +37,7 @@
     </nav>
 
     <!-- Hero Section dengan Form -->
+    <!-- Ubah bagian section hero menjadi: -->
     <section class="hero-gradient relative overflow-x-hidden" style="padding-top: 4rem;">
         <div class="container max-w-7xl mx-auto px-4 py-16">
             <div class="floating-decoration"></div>
@@ -63,7 +64,7 @@
 
             <!-- Form Container -->
             <div class="max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     <!-- Form Pendaftaran -->
                     <div class="pricing-card">
                         <div class="text-center mb-6">
@@ -161,7 +162,7 @@
                     <!-- Info Paket -->
                     <div class="space-y-6">
                         <!-- Paket Info Card -->
-                        <div id="paketInfo" class="pricing-card">
+                        <div id="paketInfo" class="pricing-card h-fit">
                             <div class="text-center mb-6">
                                 <h3 class="text-xl font-bold text-blue-900 mb-2">Informasi Paket</h3>
                                 <p class="text-gray-600">Pilih paket untuk melihat detail</p>
@@ -172,12 +173,12 @@
                         </div>
 
                         <!-- Kontak Info -->
-                        <div class="pricing-card">
-                            <div class="text-center mb-6">
-                                <h3 class="text-xl font-bold text-blue-900 mb-2">Butuh Bantuan?</h3>
+                        <div class="pricing-card h-fit">
+                            <div class="mb-6">
+                                <h3 class="text-xl font-bold text-blue-900 mb-2 text-center">Butuh Bantuan?</h3>
                             </div>
-                            <div class="space-y-4 text-gray-600">
-                                <div class="flex items-center gap-3">
+                            <div class="space-y-4 text-gray-600 text-left">
+                                <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
                                         📞
                                     </div>
@@ -186,7 +187,7 @@
                                         <p class="text-sm">+62 822 2684 1762</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-3">
+                                <div class="flex items-start gap-3">
                                     <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                                         📧
                                     </div>
@@ -195,8 +196,8 @@
                                         <p class="text-sm">official@mersifacademy.com</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
                                         📍
                                     </div>
                                     <div>
@@ -212,21 +213,52 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 text-white py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="mb-4">
-                <p class="mb-2">📞 +62 822 2684 1762</p>
-                <p class="mb-2">📧 official@mersifacademy.com</p>
-                <p class="mb-2">📍 Daratan, RT.02/RW.06, Senden, Tohudan, Kec. Colomadu, Kabupaten Karanganyar, Jawa Tengah 57173</p>
-            </div>
-            <div class="border-t border-blue-800 pt-4">
-                <p>&copy; 2025 Mersif Academy. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+<footer class="bg-blue-900 text-white py-8 -mx-4">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="mb-4">
+      <p class="mb-2">📞 +62 822 2684 1762</p>
+      <p class="mb-2">📧 official@mersifacademy.com</p>
+      <p class="mb-2">📍 Daratan, RT.02/RW.06, Senden, Tohudan, Kec. Colomadu, Kabupaten Karanganyar, Jawa Tengah 57173</p>
+    </div>
+    <div class="border-t border-blue-800 pt-4">
+      <p>&copy; 2025 Mersif Academy. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
     <script>
+// Fungsi untuk mengambil parameter dari URL
+function getURLParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// Auto-fill paket berdasarkan parameter URL
+document.addEventListener('DOMContentLoaded', function() {
+    const paketParam = getURLParameter('paket');
+    if (paketParam) {
+        const selectPaket = document.querySelector('select[name="paket"]') || 
+                           document.querySelector('#paket') || 
+                           document.querySelector('[id*="paket"]');
+        
+        if (selectPaket) {
+            // Sesuaikan value dengan option yang ada di select
+            const paketMap = {
+                'trial': 'trial',
+                'basic': 'basic', 
+                'pro': 'pro',
+                'premium': 'premium'
+            };
+            
+            if (paketMap[paketParam]) {
+                selectPaket.value = paketMap[paketParam];
+                // Trigger change event jika diperlukan
+                selectPaket.dispatchEvent(new Event('change'));
+            }
+        }
+    }
+});
+
         // Data paket untuk ditampilkan
         const paketData = {
             trial: {
@@ -291,8 +323,8 @@
                         <h4 class="text-lg font-bold text-blue-900 mb-2">${paket.nama}</h4>
                         <p class="text-2xl font-bold text-blue-600 mb-2">${paket.harga}</p>
                         <p class="text-sm text-gray-500 mb-4">${paket.durasi}</p>
-                        <p class="text-gray-600 mb-4">${paket.deskripsi}</p>
-                        <div class="space-y-2">
+                        <p class="text-gray-600 mb-3">${paket.deskripsi}</p>
+                        <div class="space-y-1">
                             <h5 class="font-semibold text-gray-700">Fitur yang didapat:</h5>
                             ${paket.fitur.map(fitur => `
                                 <div class="flex items-center gap-2">
