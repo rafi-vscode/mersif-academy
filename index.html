@@ -159,7 +159,7 @@
 .hero-gradient {
   position: relative;
   min-height: 100vh;
-  padding-top: 2rem; 
+  padding-top: 4rem; 
   background-image: url('bg.jpg');
   background-attachment: fixed;
   background-position: center;
@@ -244,6 +244,11 @@
 .parallax-bg > * {
   position: relative;
   z-index: 2;
+}
+.parallax-element {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.4s ease;
 }
 
 .animated-bg-element {
@@ -411,17 +416,16 @@ nav ul li a.bg-blue-900 {
         </div>
       </div>
     </div>
-<div class="relative z-10 max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
-
   <!-- Left Content -->
-  <div class="w-full max-w-md mx-auto lg:mx-0 text-left space-y-4">
+<div class="container mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between">
+  <!-- KONTEN KIRI: Tulisan -->
+  <div class="w-full max-w-md text-left space-y-4 lg:pr-16 order-2 lg:order-1 transform translate-x-4 translate-y-2 lg:translate-x-16 lg:-translate-y-12">
     <div class="mb-6">
-      <h1 class="text-4xl lg:text-5xl font-bold text-left" data-aos="fade-down-right" data-aos-duration="1000">
-        <span class="gradient-text">Mersif</span>
-        <span class="text-gray-800">Academy</span>
+      <h1 class="text-4xl lg:text-5xl font-bold"
+            data-aos="fade-down-right" data-aos-duration="1000">
+          <span class="gradient-text">Mersif</span><span class="text-gray-800">Academy</span>
       </h1>
     </div>
-
     <p class="text-lg text-gray-700 leading-relaxed" data-aos="fade-right" data-aos-duration="1000">
       Platform pembelajaran riset, sains, dan teknologi berbasis open innovation untuk 
       mencetak inovator muda Indonesia.
@@ -439,28 +443,48 @@ nav ul li a.bg-blue-900 {
     </div>
   </div>
 
-<!-- Right Content - Single Image with Circular Border -->
-<div class="relative" data-aos="fade-down" data-aos-duration="1000">
-  <div class="bg-cyan-400 rounded-full w-80 h-80 lg:w-96 lg:h-96 mx-auto p-2">
-    <img src="awal.jpg"
-         alt="Mahasiswa"
-         class="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
+<!-- KONTEN KANAN: Gambar Kartun -->
+<div class="relative z-0 w-full lg:w-1/2 flex justify-center order-3 lg:order-2"
+     data-aos="fade-down" data-aos-duration="1000">
+
+  <!-- Container Utama -->
+<div class="relative w-[300px] sm:w-[350px] lg:w-[500px] transform translate-y-8 lg:-translate-x-4 lg:-translate-y-8"
+     style="margin-top: 10px;"><!-- ← Atur manual -->
+
+    <!-- Gambar Kartun -->
+    <img src="kartun-transparan.png"
+         alt="Ilustrasi Juara"
+         class="w-full pointer-events-none select-none" />
+
+    <!-- Garis Bawah -->
+    <div class="absolute bottom-[-12px] left-0 h-[4px]
+                w-[200px] sm:w-[280px] md:w-[350px] lg:w-[480px]
+                bg-gradient-to-r from-blue-500 to-blue-300 rounded-full">
+    </div>
+
+    <!-- Garis Kanan -->
+    <div class="absolute top-0 right-[-10px] w-[4px] h-full 
+                bg-gradient-to-b from-blue-500 to-blue-300 rounded-full">
+    </div>
+
   </div>
 </div>
 
+
+
         
         <!-- Decorative Elements -->
-        <div class="absolute -top-10 -right-10 w-20 h-20 bg-red-400 rounded-full opacity-80"></div>
-        <div class="absolute -bottom-10 -left-10 w-16 h-16 bg-yellow-400 rounded-full opacity-80"></div>
-        
-        <!-- Paper Plane -->
-        <div class="absolute bottom-20 right-10 float-animation" style="animation-delay: 1.5s;">
-          <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-          </svg>
-        </div>
-      </div>
-    </div>
+<!-- Decorative Elements -->
+<div class="absolute top-10 -right-10 lg:-top-10 w-20 h-20 bg-red-400 rounded-full opacity-80"></div>
+<div class="absolute bottom-50 -left-10 lg:-bottom-10 w-16 h-16 bg-yellow-400 rounded-full opacity-80"></div>
+
+<!-- Paper Plane -->
+<div class="absolute bottom-0 right-10 lg:bottom-20 float-animation" style="animation-delay: 1.5s;">
+  <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+  </svg>
+</div>
+
 </section>
 
   <!-- Collaboration Section -->
