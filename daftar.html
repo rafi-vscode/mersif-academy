@@ -173,45 +173,40 @@
                         </div>
 
                         <!-- Kontak Info -->
-                        <div class="pricing-card h-fit">
+                        <div class="pricing-card h-fit" id="chatbot-card">
                             <div class="mb-6">
                                 <h3 class="text-xl font-bold text-blue-900 mb-2 text-center">Butuh Bantuan?</h3>
+                                <p class="text-sm text-gray-600 text-center">Tanyain apa saja tentang kami di sini yaa!</p>
                             </div>
-                            <div class="space-y-4 text-gray-600 text-left">
-                                <div class="flex items-start gap-3">
-                                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                                        📞
-                                    </div>
-                                    <div>
-                                        <p class="font-medium">WhatsApp</p>
-                                        <p class="text-sm">+62 822 2684 1762</p>
+    
+                            <div class="chatbot-container">
+                                <div class="chat-messages" id="chat-messages">
+                                </div>
+        
+                                <div class="chat-input-container">
+                                    <div class="flex gap-2">
+                                        <input type="text" id="chat-input" placeholder="Ketik pertanyaan Anda..." 
+                                               class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                                        <button id="send-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                            Kirim
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                                        📧
-                                    </div>
-                                    <div>
-                                        <p class="font-medium">Email</p>
-                                        <p class="text-sm">official@mersifacademy.com</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                        📍
-                                    </div>
-                                    <div>
-                                        <p class="font-medium">Alamat</p>
-                                        <p class="text-sm">Daratan, RT.02/RW.06, Senden, Tohudan, Kec. Colomadu, Kabupaten Karanganyar, Jawa Tengah</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>              
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <div id="chat-intents" class="hidden">
+  <div data-keywords="paket,harga,biaya" data-respon="Kami menawarkan paket Trial, Basic, Pro, dan Premium. Info lengkap ada di halaman Paket."></div>
+  <div data-keywords="trial,gratis" data-respon="TRIAL adalah paket gratis 1 kali pertemuan online. Cocok untuk pemula."></div>
+  <div data-keywords="layanan,mentoring" data-respon="Kami juga menyediakan mentoring mingguan, bootcamp, dan pelatihan lomba."></div>
+  <div data-keywords="mentor,pembimbing" data-respon="Mentor kami berasal dari berbagai bidang lohh!!. Bisa kamu lihat di halaman Mentor."></div>
+  <div data-keywords="portofolio,karya" data-respon="Kami punya banyak karya siswa, seperti robot, IoT, dan banyak lagi, bisa kamu lihat di portofolio yaa."></div>
+</div>
+
 
 <footer class="bg-blue-900 text-white py-8 -mx-4">
   <div class="max-w-7xl mx-auto px-4 text-center">
@@ -227,6 +222,88 @@
 </footer>
 
     <script>
+  // Menunggu sampai dokumen siap
+document.addEventListener('DOMContentLoaded', function () {
+  const sendBtn = document.getElementById('send-btn');
+  const chatInput = document.getElementById('chat-input');
+  const chatMessages = document.getElementById('chat-messages');
+  const intents = document.querySelectorAll('#chat-intents > div');
+  // Tampilkan sapaan awal dari bot saat halaman dimuat
+  appendMessage('bot', '👋 Halo! Saya AI Assistant Mersif Academy. Ada yang bisa saya bantu?');
+
+
+  // Tambahkan pesan ke tampilan chat
+  function appendMessage(sender, text) {
+    const chatRow = document.createElement('div');
+    chatRow.classList.add('chat-row', sender === 'bot' ? 'bot-message' : 'user-message');
+
+    const avatar = document.createElement('img');
+    avatar.classList.add('avatar');
+    avatar.src = sender === 'bot'
+      ? 'orang.jpg'  // ← Ganti dengan foto kamu
+      : 'https://cdn-icons-png.flaticon.com/512/149/149071.png'; // Default user
+    avatar.alt = sender;
+
+    const bubble = document.createElement('div');
+    bubble.classList.add('message-bubble', sender, 'with-tail');
+    bubble.innerText = text;
+
+    chatRow.appendChild(avatar);
+    chatRow.appendChild(bubble);
+    chatMessages.appendChild(chatRow);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  // Balasan bot berdasarkan data-respon + fallback
+  function botReply(userText) {
+    const cleaned = userText.toLowerCase();
+    let response = "Maaf, saya belum memahami pertanyaan Anda.";
+
+    // Cek keyword dari data-respon
+    for (let intent of intents) {
+      const keywords = intent.getAttribute('data-keywords').split(',');
+      for (let keyword of keywords) {
+        if (cleaned.includes(keyword.trim())) {
+          response = intent.getAttribute('data-respon');
+          break;
+        }
+      }
+      if (response !== "Maaf, saya belum memahami pertanyaan Anda.") break;
+    }
+
+    // Fallback tambahan
+    if (response === "Maaf, saya belum memahami pertanyaan Anda.") {
+      if (cleaned.includes("paket") || cleaned.includes("harga")) {
+        response = "Kami menawarkan 4 paket: Trial, Basic, Pro, dan Premium. Silakan pilih pada formulir untuk detailnya.";
+      } else if (cleaned.includes("daftar") || cleaned.includes("cara")) {
+        response = "Anda bisa mengisi form pendaftaran di atas dan klik 'Kirim via WhatsApp' atau 'Kirim via Email'.";
+      } else if (cleaned.includes("kontak") || cleaned.includes("hubungi")) {
+        response = "Anda bisa menghubungi kami pada nomor WhatsApp yang tertera yaa.";
+      }
+    }
+
+    setTimeout(() => {
+      appendMessage('bot', response);
+    }, 800); // Simulasi respon
+  }
+
+  function handleChat() {
+    const userText = chatInput.value.trim();
+    if (userText !== "") {
+      appendMessage('user', userText);
+      chatInput.value = "";
+      botReply(userText);
+    }
+  }
+
+  sendBtn.addEventListener('click', handleChat);
+  chatInput.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      handleChat();
+    }
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
