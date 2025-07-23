@@ -6,6 +6,10 @@
     <title>Mentor - Mersif Academy</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 </head>
 <body class="bg-gray-50 overflow-x-hidden">
@@ -41,14 +45,14 @@
 
 
     <!-- Main Content -->
-    <section class="hero-gradient relative overflow-x-hidden" style="padding-top: 6rem;">
+    <section class="hero-gradient relative overflow-x-hidden" style="padding-top: 6rem; padding-bottom: 8rem;">
         <div class="max-w-7xl mx-auto px-4">
             <!-- Header -->
             <div class="text-center mb-16">
                 <div class="flex justify-center mb-4">
                 </div>
-                <h1 class="text-4xl font-bold text-blue-900 mb-4 slide-in">Mentor</h1>
-                <p class="text-gray-600 max-w-2xl mx-auto fade-in">
+                <h1 class="text-4xl font-bold text-blue-900 mb-4" data-aos="fade-down" data-aos-duration="1000">Mentor</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
                     Tim mentor berpengalaman yang siap membimbing Anda dalam perjalanan riset dan kompetisi sains
                 </p>
             </div>
@@ -56,7 +60,7 @@
             <!-- Mentors Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Mentor 1 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)" data-aos="fade-down-right" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="logo/mentor1.jpg" alt="Rozin Fata Ulvian" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Rozin Fata Ulvian</h3>
@@ -98,7 +102,7 @@
                 </div>
 
                 <!-- Mentor 2 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)"data-aos="zoom-in" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/1d4ed8/white?text=BP" alt="Bagus Prayoga" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Bagus Prayoga</h3>
@@ -140,7 +144,7 @@
                 </div>
 
                 <!-- Mentor 3 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)" data-aos="fade-down-left" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/2563eb/white?text=AR" alt="Atina Rahmawati" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Atina Rahmawati</h3>
@@ -182,7 +186,7 @@
                 </div>
 
                 <!-- Mentor 4 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)" data-aos="fade-right" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/3730a3/white?text=MA" alt="Moh. Abdul Mukhit" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Moh. Abdul Mukhit</h3>
@@ -224,7 +228,7 @@
                 </div>
 
                 <!-- Mentor 5 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)" data-aos="zoom-in-up" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/1e40af/white?text=IK" alt="Illyin Kurniana" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Illyin Kurniana</h3>
@@ -266,7 +270,7 @@
                 </div>
 
                 <!-- Mentor 6 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)" data-aos="fade-left" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/1d4ed8/white?text=SK" alt="Sinta Kristiana Putri" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Sinta Kristiana Putri</h3>
@@ -311,49 +315,50 @@
             <!-- Second Row -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                 <!-- Mentor 7 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300" onclick="toggleExperience(this)">
-                    <div class="flex flex-col items-center text-center">
-                        <img src="https://via.placeholder.com/80x80/3b82f6/white?text=KD" alt="Kiranda Dinata" class="mentor-photo mb-4">
-                        <h3 class="text-xl font-bold text-blue-900 mb-2">Kiranda Dinata</h3>
-                        <p class="text-blue-600 font-medium mb-3">Fisika Material dan Elektronika</p>
-                        <div class="flex items-center justify-center text-sm text-gray-500 mb-3">
-                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <span>Berpengalaman dalam 15+ Kompetisi</span>
-                        </div>
-                        <p class="text-gray-600 text-sm">
-                            Expert material science dengan pengalaman Kompetisi Nasional
-                        </p>
-                    </div>
-                    <div class="experience-bubble">
-                        <button class="close-btn" onclick="event.stopPropagation(); toggleExperience(this.parentElement.parentElement)">&times;</button>
-                        <div class="mb-4">
-                            <h4 class="font-bold text-blue-900 mb-3">Pengalaman Mentor</h4>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li class="flex items-start">
-                                    <span class="text-blue-600 mr-2">•</span>
-                                    Peneliti material nano
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-blue-600 mr-2">•</span>
-                                    Juara kompetisi fisika material
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-blue-600 mr-2">•</span>
-                                    Konsultan industri elektronik
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="text-blue-600 mr-2">•</span>
-                                    Pembimbing thesis 50+ mahasiswa
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300 mb-16" onclick="toggleExperience(this)" data-aos="fade-up-right" data-aos-duration="1000">
+    <div class="flex flex-col items-center text-center">
+        <img src="https://via.placeholder.com/80x80/3b82f6/white?text=KD" alt="Kiranda Dinata" class="mentor-photo mb-4">
+        <h3 class="text-xl font-bold text-blue-900 mb-2">Kiranda Dinata</h3>
+        <p class="text-blue-600 font-medium mb-3">Fisika Material dan Elektronika</p>
+        <div class="flex items-center justify-center text-sm text-gray-500 mb-3">
+            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Berpengalaman dalam 15+ Kompetisi</span>
+        </div>
+        <p class="text-gray-600 text-sm">
+            Expert material science dengan pengalaman Kompetisi Nasional
+        </p>
+    </div>
+    <div class="experience-bubble">
+        <button class="close-btn" onclick="event.stopPropagation(); toggleExperience(this.parentElement.parentElement)">&times;</button>
+        <div class="mb-4">
+            <h4 class="font-bold text-blue-900 mb-3">Pengalaman Mentor</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+                <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">•</span>
+                    Peneliti material nano
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">•</span>
+                    Juara kompetisi fisika material
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">•</span>
+                    Konsultan industri elektronik
+                </li>
+                <li class="flex items-start">
+                    <span class="text-blue-600 mr-2">•</span>
+                    Pembimbing thesis 50+ mahasiswa
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 
                 <!-- Mentor 8 -->
-                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300 mb-16" onclick="toggleExperience(this)">
+                <div class="mentor-card bg-white rounded-lg p-6 shadow-lg border hover:border-blue-300 mb-16" onclick="toggleExperience(this)" data-aos="fade-up-left" data-aos-duration="1000">
                     <div class="flex flex-col items-center text-center">
                         <img src="https://via.placeholder.com/80x80/2563eb/white?text=AN" alt="Ali Nur Mustofa" class="mentor-photo mb-4">
                         <h3 class="text-xl font-bold text-blue-900 mb-2">Ali Nur Mustofa</h3>
@@ -385,7 +390,8 @@
                                     <span class="text-blue-600 mr-2">•</span>
                                     Ahli sistem informasi geografis
                                 </li>
-                                <li class                                     <span class="text-blue-600 mr-2">•</span>
+                                <li class="flex items-start">
+                                    <span class="text-blue-600 mr-2">•</span>
                                     Pembimbing proyek pemetaan wilayah
                                 </li>
                             </ul>
@@ -431,6 +437,9 @@
             const menu = document.getElementById('menu');
             menu.classList.toggle('hidden');
         });
+
+        AOS.init({
+         });
     </script>
 
       <!-- Footer -->
