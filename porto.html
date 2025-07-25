@@ -456,39 +456,65 @@ document.querySelectorAll('.competition-photo').forEach(photo => {
         console.log('Photo clicked - dapat ditambahkan modal zoom');
     });
 });
-        document.addEventListener('DOMContentLoaded', function() {
-            function animateCounters() {
-                const counters = document.querySelectorAll('.stats-counter');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.textContent.replace('+', ''));
-                    let current = 0;
-                    const increment = target / 30;
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
-                            clearInterval(timer);
-                        } else {
-                            counter.textContent = Math.floor(current) + (counter.textContent.includes('+') ? '+' : '');
-                        }
-                    }, 50);
-                });
-            }
-
-// Intersection Observer untuk setiap counter individual
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && entry.target.dataset.animated !== 'true') {
-            animateCounters([entry.target]); // Animasikan hanya counter ini
+document.addEventListener('DOMContentLoaded', function() {
+    // Fungsi untuk animasi counter individual
+    function animateCounter(counter) {
+        // Cek apakah sudah dianimasi
+        if (counter.dataset.animated === 'true') return;
+        
+        // Tandai sedang dianimasi
+        counter.dataset.animated = 'true';
+        
+        // Ambil target value
+        const targetText = counter.textContent;
+        const hasPlus = targetText.includes('+');
+        const target = parseInt(targetText.replace('+', '').replace(/,/g, ''));
+        
+        // Validasi target
+        if (isNaN(target)) {
+            console.warn('Target value is not a valid number:', targetText);
+            return;
         }
+        
+        let current = 0;
+        const duration = 2000; // 2 detik
+        const frameRate = 60; // 60 FPS
+        const totalFrames = (duration / 1000) * frameRate;
+        const increment = target / totalFrames;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            
+            if (current >= target) {
+                // Selesai - set ke nilai target yang tepat
+                counter.textContent = target.toLocaleString() + (hasPlus ? '+' : '');
+                clearInterval(timer);
+            } else {
+                // Update dengan nilai saat ini
+                const displayValue = Math.floor(current);
+                counter.textContent = displayValue.toLocaleString() + (hasPlus ? '+' : '');
+            }
+        }, 1000 / frameRate);
+    }
+
+    // Intersection Observer untuk trigger animasi
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                // Stop observing setelah animasi dimulai
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { 
+        threshold: 0.3, // Trigger ketika 30% elemen terlihat
+        rootMargin: '0px 0px -50px 0px' // Trigger sedikit sebelum benar-benar terlihat
     });
-}, { threshold: 0.5 });
 
-// Observe setiap counter secara individual
-document.querySelectorAll('.stats-counter').forEach(counter => {
-    observer.observe(counter);
-});
-
+    // Observe semua counter
+    document.querySelectorAll('.stats-counter').forEach(counter => {
+        observer.observe(counter);
+    });
             document.querySelectorAll('.project-item').forEach(item => {
                 item.addEventListener('mouseenter', function() {
                     this.style.transform = 'scale(1.05) rotateY(5deg)';
